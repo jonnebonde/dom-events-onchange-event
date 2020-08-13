@@ -6,15 +6,19 @@ dropdown.onchange = function () {
 
     const selectedValue = this.value;
 
-    circlesContainer.innerHTML = "";
+    // circlesContainer.innerHTML = `<div class="spinner"></div>`;
 
-    for (let i = 1; i <= selectedValue; i++) {
-        let className = "";
+    setTimeout(function () {
+        circlesContainer.innerHTML = "";
 
-        if (i % 2 === 0) {
-            className = "highlight";
+        for (let i = 1; i <= selectedValue; i++) {
+            let className = "";
+
+            if (i % 2 === 0) {
+                className = "highlight";
+            }
+
+            circlesContainer.innerHTML += `<div class="circle ${className}">${i}</div>`;
         }
-
-        circlesContainer.innerHTML += `<div class="circle ${className}">${i}</div>`;
-    }
+    }, 1000);
 };
